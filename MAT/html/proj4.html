@@ -1,0 +1,490 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>proj4</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-05"><meta name="DC.source" content="proj4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="comment">%Abdul Rahman Khan</span>
+<span class="comment">%GL1811</span>
+<span class="comment">%20PKB079</span>
+
+<span class="comment">% Q1</span>
+f = @(x) (x)^3 - 9*((x)^2) + 3.8197;
+
+x = [0 6];
+
+a = fzero(f, x);
+
+
+<span class="comment">% Q2a</span>
+
+f = @(x) (x)^2 - 4*(x) + 7;
+x = [-1 3];
+figure(1)
+fplot(f)
+title(<span class="string">'Q2A'</span>)
+
+<span class="comment">%a = fzero(f,x)%will show error because the function never touches the x axis</span>
+
+<span class="comment">% Q2b</span>
+
+y = 1;
+z = 1;
+f = @(x) (x)^3 + 2*(x)*(y)*((z)^2)-(y)*(z)+1;
+figure(2)
+fplot(f)
+title(<span class="string">'Q2B'</span>)
+
+b = fzero(f,[-1 1]);
+
+
+<span class="comment">% Q3</span>
+
+Ca0 = 2000;
+V=0.01;
+v=0.0005;
+k=0.00023;
+
+g = @(Ca) V-v*(Ca0-Ca)./(k*Ca.^2);
+figure(3)
+fplot(g, [100 600])
+title(<span class="string">'Q3'</span>)
+fsolve(@(Ca) g(Ca),520)
+
+x=fsolve(g,500);
+
+a1=g(x);
+
+options=optimset( <span class="string">'Display'</span>,<span class="string">'iter'</span>);
+
+[X,FVAL,EXITFLAG,OUTPUT]=fsolve( g, 500,options);
+
+options=optimset(<span class="string">'TolFun'</span>,1e-9);
+
+
+[x2,FVAL,EXITFLAG,OUTPUT ]=fsolve( g,500,options);
+
+a2=g(x2);
+
+sprintf(<span class="string">'The concentration for 1st tolerance is %1.2f mol/L'</span>,x2')
+
+[X,FVAL,EXITFLAG,OUTPUT ]=fsolve( g,500,options);
+
+options=optimset(<span class="string">'TolFun'</span>,1e-15);
+
+[x3,FVAL,EXITFLAG,OUTPUT ]=fsolve(g,500,options);
+
+a3=g(x3);
+
+sprintf(<span class="string">'The concentration for 2nd tolerance is %1.2f mol/m^3'</span>,x3')
+
+<span class="comment">% Q4</span>
+ syms <span class="string">FA</span>
+ k=0.23;
+ FA0=1;
+ v0=10;
+ fn = (1./(-(k.*FA)./v0));
+ q(FA) =  int(fn,FA0,FA);
+
+ FA_span = 1:-0.0001:0.0000001;
+
+ y1 = 100 -(q(FA_span));
+ figure(4)
+ plot(FA_span, y1)
+ title(<span class="string">'Q4'</span>)
+ xlabel(<span class="string">'FA'</span>)
+ ylabel(<span class="string">'100 - quad(f1,FA0,FA)'</span>)
+ grid <span class="string">on</span>
+
+<span class="comment">%solution using fsolve</span>
+k = 0.23;
+v0 = 10;
+
+fun = @(Fa)  100 - (log(Fa)/(-k/v0));
+x0 = 0.5;
+FA = fsolve(fun,x0);
+CA = FA/v0;
+
+<span class="comment">% Q5</span>
+
+f=@(x,y) 2+x+y-x^2+8*x*y+y^3;
+g=@(x,y) 1+2*x-3*y+x^2-y*exp(x);
+x=linspace(-5,5,1000);
+fx=arrayfun(@(x) fzero(@(y) f(x,y),0.1),x);
+gx=arrayfun(@(x) fzero(@(y) g(x,y),0),x);
+figure(5)
+plot(x,fx,x,gx)
+title(<span class="string">'Q5'</span>)
+xlabel(<span class="string">'x'</span>)
+ylabel(<span class="string">'y'</span>)
+f1=@(z) [f(z(1),z(2));g(z(1),z(2))];
+fsolve(f1,[-1 0])
+
+<span class="comment">% Q6</span>
+
+T = 298;
+Q = 2.5/1000;
+P = 103*1000;
+L = 100;
+d = 46.08+9.418*T-0.0329*T^2+(4.882*1e-5*T^3)-2.895*T^4*1e-8;
+u = exp(-10.547+541.69/(T-144.53));
+Re = linspace(2200,9000);
+f = arrayfun(@Fanning_Friction_Factor,Re);
+figure(6)
+plot(Re,f)
+title(<span class="string">'Q6'</span>)
+xlabel(<span class="string">'Re'</span>)
+ylabel(<span class="string">'Fanning Friction Factor'</span>)
+D = fzero(@findD,0.04);
+sprintf(<span class="string">'The diameter of the pipe is = %s\n'</span>, D)
+<span class="keyword">function</span> fF = Fanning_Friction_Factor(Re)
+<span class="keyword">if</span> Re&lt;2100
+fF = 16/Re;
+fprintf(<span class="string">'Laminar Flow'</span>)
+<span class="keyword">else</span>
+fx = @(f) 1/sqrt(f)-(4.0*log10(Re*sqrt(f))-0.4);
+fF = fzero(fx,0.01);
+fprintf(<span class="string">'Turbulent Flow'</span>)
+<span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="keyword">function</span> z = findD(D)
+T = 298;
+Q = 2.5/1000;
+P = 103*1000;
+L=100;
+d=46.08+9.418*T-0.0329*T^2+(4.882*1e-5*T^3)-2.895*T^4*1e-8;
+u=exp(-10.547+541.69/(T-144.53));
+v = Q/(pi*D^2/4);
+Re = D*v*d/u;
+fF = Fanning_Friction_Factor(Re);
+z = P - 2*fF*d*L*v^2/D;
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Warning: Function behaves unexpectedly on array inputs. To improve performance,
+properly vectorize your function to return an output with the same size and
+shape as the input arguments. 
+Warning: Function behaves unexpectedly on array inputs. To improve performance,
+properly vectorize your function to return an output with the same size and
+shape as the input arguments. 
+
+Equation solved at initial point.
+
+fsolve completed because the vector of function values at the initial point
+is near zero as measured by the default value of the function tolerance, and
+the problem appears regular as measured by the gradient.
+
+
+
+
+ans =
+
+   520
+
+
+Equation solved at initial point.
+
+fsolve completed because the vector of function values at the initial point
+is near zero as measured by the default value of the function tolerance, and
+the problem appears regular as measured by the gradient.
+
+
+
+
+                                         Norm of      First-order   Trust-region
+ Iteration  Func-count     f(x)          step         optimality    radius
+     0          2     9.26276e-06                      1.85e-07               1
+
+Equation solved at initial point.
+
+fsolve completed because the vector of function values at the initial point
+is near zero as measured by the default value of the function tolerance, and
+the problem appears regular as measured by the gradient.
+
+
+
+
+Equation solved.
+
+fsolve completed because the vector of function values is near zero
+as measured by the selected value of the function tolerance, and
+the problem appears regular as measured by the gradient.
+
+
+
+
+ans =
+
+    'The concentration for 1st tolerance is 559.55 mol/L'
+
+
+Equation solved.
+
+fsolve completed because the vector of function values is near zero
+as measured by the selected value of the function tolerance, and
+the problem appears regular as measured by the gradient.
+
+
+
+
+Equation solved.
+
+fsolve completed because the vector of function values is near zero
+as measured by the selected value of the function tolerance, and
+the problem appears regular as measured by the gradient.
+
+
+
+
+ans =
+
+    'The concentration for 2nd tolerance is 559.58 mol/m^3'
+
+
+Equation solved.
+
+fsolve completed because the vector of function values is near zero
+as measured by the default value of the function tolerance, and
+the problem appears regular as measured by the gradient.
+
+
+
+
+Equation solved at initial point.
+
+fsolve completed because the vector of function values at the initial point
+is near zero as measured by the default value of the function tolerance, and
+the problem appears regular as measured by the gradient.
+
+
+
+
+ans =
+
+    -1     0
+
+Turbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent FlowTurbulent Flow
+ans =
+
+    'The diameter of the pipe is = 3.897169e-02
+     '
+
+</pre><img vspace="5" hspace="5" src="proj4_01.png" alt=""> <img vspace="5" hspace="5" src="proj4_02.png" alt=""> <img vspace="5" hspace="5" src="proj4_03.png" alt=""> <img vspace="5" hspace="5" src="proj4_04.png" alt=""> <img vspace="5" hspace="5" src="proj4_05.png" alt=""> <img vspace="5" hspace="5" src="proj4_06.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%Abdul Rahman Khan
+%GL1811
+%20PKB079
+
+% Q1
+f = @(x) (x)^3 - 9*((x)^2) + 3.8197;
+
+x = [0 6];
+    
+a = fzero(f, x);
+
+
+% Q2a
+
+f = @(x) (x)^2 - 4*(x) + 7;
+x = [-1 3];
+figure(1)
+fplot(f)
+title('Q2A')
+
+%a = fzero(f,x)%will show error because the function never touches the x axis
+
+% Q2b
+
+y = 1;
+z = 1;
+f = @(x) (x)^3 + 2*(x)*(y)*((z)^2)-(y)*(z)+1;
+figure(2)
+fplot(f)
+title('Q2B')
+
+b = fzero(f,[-1 1]);
+
+
+% Q3
+
+Ca0 = 2000;
+V=0.01;
+v=0.0005;
+k=0.00023;
+
+g = @(Ca) V-v*(Ca0-Ca)./(k*Ca.^2);
+figure(3)
+fplot(g, [100 600])
+title('Q3')
+fsolve(@(Ca) g(Ca),520)
+
+x=fsolve(g,500);
+
+a1=g(x);
+
+options=optimset( 'Display','iter');
+
+[X,FVAL,EXITFLAG,OUTPUT]=fsolve( g, 500,options);
+
+options=optimset('TolFun',1e-9);
+
+
+[x2,FVAL,EXITFLAG,OUTPUT ]=fsolve( g,500,options);
+
+a2=g(x2);
+
+sprintf('The concentration for 1st tolerance is %1.2f mol/L',x2')
+
+[X,FVAL,EXITFLAG,OUTPUT ]=fsolve( g,500,options);
+
+options=optimset('TolFun',1e-15);
+
+[x3,FVAL,EXITFLAG,OUTPUT ]=fsolve(g,500,options);
+
+a3=g(x3);
+
+sprintf('The concentration for 2nd tolerance is %1.2f mol/m^3',x3')
+
+% Q4
+ syms FA
+ k=0.23;
+ FA0=1; 
+ v0=10;
+ fn = (1./(-(k.*FA)./v0));
+ q(FA) =  int(fn,FA0,FA);
+ 
+ FA_span = 1:-0.0001:0.0000001;
+ 
+ y1 = 100 -(q(FA_span));
+ figure(4)
+ plot(FA_span, y1)
+ title('Q4')
+ xlabel('FA')
+ ylabel('100 - quad(f1,FA0,FA)')
+ grid on
+
+%solution using fsolve 
+k = 0.23;
+v0 = 10;
+
+fun = @(Fa)  100 - (log(Fa)/(-k/v0));
+x0 = 0.5;
+FA = fsolve(fun,x0); 
+CA = FA/v0;
+
+% Q5
+
+f=@(x,y) 2+x+y-x^2+8*x*y+y^3;
+g=@(x,y) 1+2*x-3*y+x^2-y*exp(x);
+x=linspace(-5,5,1000);
+fx=arrayfun(@(x) fzero(@(y) f(x,y),0.1),x);
+gx=arrayfun(@(x) fzero(@(y) g(x,y),0),x);
+figure(5)
+plot(x,fx,x,gx)
+title('Q5')
+xlabel('x')
+ylabel('y')
+f1=@(z) [f(z(1),z(2));g(z(1),z(2))];
+fsolve(f1,[-1 0])
+
+% Q6
+
+T = 298;
+Q = 2.5/1000;
+P = 103*1000;
+L = 100;
+d = 46.08+9.418*T-0.0329*T^2+(4.882*1e-5*T^3)-2.895*T^4*1e-8;
+u = exp(-10.547+541.69/(T-144.53));
+Re = linspace(2200,9000);
+f = arrayfun(@Fanning_Friction_Factor,Re);
+figure(6)
+plot(Re,f)
+title('Q6')
+xlabel('Re')
+ylabel('Fanning Friction Factor')
+D = fzero(@findD,0.04);
+sprintf('The diameter of the pipe is = %s\n', D)
+function fF = Fanning_Friction_Factor(Re)
+if Re<2100
+fF = 16/Re;
+fprintf('Laminar Flow')
+else
+fx = @(f) 1/sqrt(f)-(4.0*log10(Re*sqrt(f))-0.4);
+fF = fzero(fx,0.01);
+fprintf('Turbulent Flow')
+end
+end
+function z = findD(D)
+T = 298;
+Q = 2.5/1000;
+P = 103*1000;
+L=100;
+d=46.08+9.418*T-0.0329*T^2+(4.882*1e-5*T^3)-2.895*T^4*1e-8;
+u=exp(-10.547+541.69/(T-144.53));
+v = Q/(pi*D^2/4);
+Re = D*v*d/u;
+fF = Fanning_Friction_Factor(Re);
+z = P - 2*fF*d*L*v^2/D;
+end
+##### SOURCE END #####
+--></body></html>

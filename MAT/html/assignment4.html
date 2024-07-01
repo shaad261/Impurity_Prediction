@@ -1,0 +1,271 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>assignment4</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-09"><meta name="DC.source" content="assignment4.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">Q1</a></li><li><a href="#3">Q2</a></li><li><a href="#4">Q3</a></li><li><a href="#5">Q4</a></li><li><a href="#6">Functions</a></li></ul></div><pre class="codeinput"><span class="comment">%Belal Khan</span>
+<span class="comment">%20PKB359</span>
+<span class="comment">%GL9733</span>
+</pre><h2 id="2">Q1</h2><pre class="codeinput">k1=2;
+k2=1;
+t_inter = [0 1/3];
+init_cond = [2 0 0];
+
+[t,y] = ode45(@odefnc ,t_inter ,init_cond);
+plot(t,y(:,1),t,y(:,2),t,y(:,3))
+xlabel(<span class="string">'Time t'</span>);
+ylabel(<span class="string">'Concentration C'</span>);
+legend(<span class="string">'Ca'</span>,<span class="string">'Cd'</span>,<span class="string">'Cu'</span>)
+
+Ca_final = y(57,1)
+Cd_final = y(57,2)
+Cu_final = y(57,3)
+</pre><img vspace="5" hspace="5" src="assignment4_01.png" alt=""> <h2 id="3">Q2</h2><pre class="codeinput">syms <span class="string">y1(t)</span> <span class="string">k1</span> <span class="string">y2(t)</span> <span class="string">k2</span>;
+
+cond1 = y1(0) == <span class="string">'Cao'</span>;
+cond2 = y2(0) == 0;
+eqn1 = diff(y1,t) == (-k1)*y1;
+eqn2 = diff(y2,t) ==  k1*y1 - k2*(y2)^2;
+
+eqn = [eqn1, eqn2];
+init_cond = [cond1, cond2];
+S = dsolve(eqn,init_cond);
+
+Ca = S.y1
+Cb = S.y2
+</pre><pre class="codeoutput"> 
+Ca =
+ 
+Cao*exp(-k1*t)
+ 
+ 
+Cb =
+ 
+-(exp(-(k1*t)/2)*(bessely(1, -(2*exp(-(k1*t)/2)*(-Cao*k1*k2)^(1/2))/k1)*(-Cao*k1*k2)^(1/2) - (besselj(1, (2*exp(-(k1*t)/2)*(-Cao*k1*k2)^(1/2))/k1)*bessely(1, -(2*(-Cao*k1*k2)^(1/2))/k1)*(-Cao*k1*k2)^(1/2))/besselj(1, (2*(-Cao*k1*k2)^(1/2))/k1)))/(k2*(bessely(0, -(2*exp(-(k1*t)/2)*(-Cao*k1*k2)^(1/2))/k1) + (besselj(0, (2*exp(-(k1*t)/2)*(-Cao*k1*k2)^(1/2))/k1)*bessely(1, -(2*(-Cao*k1*k2)^(1/2))/k1))/besselj(1, (2*(-Cao*k1*k2)^(1/2))/k1)))
+ 
+</pre><h2 id="4">Q3</h2><pre class="codeinput">syms <span class="string">y(r)</span> <span class="string">Co</span> <span class="string">De</span> <span class="string">k</span> <span class="string">R</span>;
+<span class="comment">% r=0:0.01:1;</span>
+eqn = De*diff(y,r,2)==k*y;
+Dy = diff(y,r);
+init_cond = [y(R)==Co, Dy(0)==0];
+sol = dsolve(eqn,init_cond);
+
+s= simplify(sol)
+</pre><pre class="codeoutput"> 
+s =
+ 
+(Co*(exp((R*(De*k)^(1/2))/De) + exp(((De*k)^(1/2)*(R + 2*r))/De)))/(exp((r*(De*k)^(1/2))/De) + exp(((De*k)^(1/2)*(2*R + r))/De))
+ 
+</pre><h2 id="5">Q4</h2><pre class="codeinput">clc
+clear
+
+L = 1;
+x = linspace(0,L,20);
+t = [linspace(0,0.05,20), linspace(0.5,5,10)];
+
+m = 0;
+sol = pdepe(m,@heatpde,@heatic,@heatbc,x,t);
+
+u = sol(:,:,1);
+surf(x,t,u)
+xlabel(<span class="string">'x'</span>)
+ylabel(<span class="string">'t'</span>)
+zlabel(<span class="string">'u(x,t)'</span>)
+view([150 25])
+</pre><img vspace="5" hspace="5" src="assignment4_02.png" alt=""> <h2 id="6">Functions</h2><pre class="codeinput"><span class="keyword">function</span> dydt = odefnc(t,y)
+
+dydt = [-2*y(1) - y(1)^2
+        2*y(1)
+        y(1)^2] ;
+
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> [c,f,s] = heatpde(x,t,u,dudx)
+c = pi^2;
+f = dudx;
+s = 0;
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> u0 = heatic(x)
+u0 = sin(pi*x);
+<span class="keyword">end</span>
+<span class="keyword">function</span> [pl,ql,pr,qr] = heatbc(xl,ul,xr,ur,t)
+pl = ul;
+ql = 0;
+pr = ur - pi*exp(-t);
+qr = 0;
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+Ca_final =
+
+    0.6907
+
+
+Cd_final =
+
+    0.7930
+
+
+Cu_final =
+
+    0.5163
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%Belal Khan
+%20PKB359
+%GL9733
+
+%% Q1
+
+k1=2; 
+k2=1;
+t_inter = [0 1/3];
+init_cond = [2 0 0];
+
+[t,y] = ode45(@odefnc ,t_inter ,init_cond);
+plot(t,y(:,1),t,y(:,2),t,y(:,3))
+xlabel('Time t');
+ylabel('Concentration C');
+legend('Ca','Cd','Cu')
+
+Ca_final = y(57,1)
+Cd_final = y(57,2)
+Cu_final = y(57,3)
+
+
+%% Q2 
+syms y1(t) k1 y2(t) k2; 
+
+cond1 = y1(0) == 'Cao';
+cond2 = y2(0) == 0;
+eqn1 = diff(y1,t) == (-k1)*y1;
+eqn2 = diff(y2,t) ==  k1*y1 - k2*(y2)^2;
+
+eqn = [eqn1, eqn2];
+init_cond = [cond1, cond2];
+S = dsolve(eqn,init_cond);
+
+Ca = S.y1
+Cb = S.y2
+
+
+%% Q3
+
+syms y(r) Co De k R;
+% r=0:0.01:1;
+eqn = De*diff(y,r,2)==k*y;
+Dy = diff(y,r);
+init_cond = [y(R)==Co, Dy(0)==0];
+sol = dsolve(eqn,init_cond);
+
+s= simplify(sol)
+
+%% Q4
+clc 
+clear
+
+L = 1;
+x = linspace(0,L,20);
+t = [linspace(0,0.05,20), linspace(0.5,5,10)];
+
+m = 0;
+sol = pdepe(m,@heatpde,@heatic,@heatbc,x,t);
+
+u = sol(:,:,1);
+surf(x,t,u)
+xlabel('x')
+ylabel('t')
+zlabel('u(x,t)')
+view([150 25])
+
+%% Functions
+
+function dydt = odefnc(t,y)
+
+dydt = [-2*y(1) - y(1)^2
+        2*y(1)
+        y(1)^2] ;
+ 
+end
+
+function [c,f,s] = heatpde(x,t,u,dudx)
+c = pi^2;
+f = dudx;
+s = 0;
+end
+
+function u0 = heatic(x)
+u0 = sin(pi*x);
+end
+function [pl,ql,pr,qr] = heatbc(xl,ul,xr,ur,t)
+pl = ul;
+ql = 0;
+pr = ur - pi*exp(-t);
+qr = 0;
+end
+##### SOURCE END #####
+--></body></html>

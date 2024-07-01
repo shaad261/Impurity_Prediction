@@ -1,0 +1,274 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>hat</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-25"><meta name="DC.source" content="hat.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">(a)</a></li><li><a href="#2">(b)</a></li></ul></div><h2 id="1">(a)</h2><pre class="codeinput">x = [0,0.25,0.5,1,2,3,4,5,6,8,10];
+y = [2.5,3.6,5.3,9.5,14.0,16.5,18.8,21.5,23.2,26.8,28.4];
+
+p = polyfit(x,y,1)
+theoretical_y = polyval(p,x)
+plot(x,y,<span class="string">'o'</span>,x,theoretical_y)
+</pre><pre class="codeoutput">
+p =
+
+    2.6522    5.8796
+
+
+theoretical_y =
+
+  Columns 1 through 7
+
+    5.8796    6.5427    7.2057    8.5318   11.1840   13.8362   16.4883
+
+  Columns 8 through 11
+
+   19.1405   21.7927   27.0971   32.4014
+
+</pre><img vspace="5" hspace="5" src="hat_01.png" alt=""> <h2 id="2">(b)</h2><pre class="codeinput">resedual=y-theoretical_y
+bar(x,resedual)
+
+
+
+<span class="comment">%(c)</span>
+
+n=length(x);
+
+<span class="comment">% r=(n*sum(x.y)-sum(x)*sum(y))/((sqrt(n*sum(x.^2)-(sum(x))^2))*(((sqrt(n*sum(y.^2)-(sum(y))^2)));</span>
+<span class="comment">% r^2</span>
+<span class="comment">%</span>
+<span class="comment">%(d)</span>
+
+s=polyfit(x,y,2)
+y_new=polyval(s,x)
+resedual_cubic=y-y_new
+
+y_mean=sum(y)/n
+
+sum_squared_regression= sum(resedual_cubic)
+total_sum_of_square= sum(y-y_mean)
+r_square_for_cubic=1-sum_squared_regression/total_sum_of_square
+
+
+q = polyfit(x,y,3)
+y_new_new = polyval(q,x)
+resedual_quadratic=y-y_new_new
+
+SSR= sum(resedual_quadratic)
+SST= sum(y-y_mean)
+r_square_for_quadratic= 1-abs(SSR/SST)
+
+plot(x,y_new_new,x,y_new)
+</pre><pre class="codeoutput">
+resedual =
+
+  Columns 1 through 7
+
+   -3.3796   -2.9427   -1.9057    0.9682    2.8160    2.6638    2.3117
+
+  Columns 8 through 11
+
+    2.3595    1.4073   -0.2971   -4.0014
+
+
+s =
+
+   -0.2534    4.9909    3.3104
+
+
+y_new =
+
+  Columns 1 through 7
+
+    3.3104    4.5423    5.7425    8.0479   12.2785   16.0023   19.2192
+
+  Columns 8 through 11
+
+   21.9293   24.1325   27.0183   27.8767
+
+
+resedual_cubic =
+
+  Columns 1 through 7
+
+   -0.8104   -0.9423   -0.4425    1.4521    1.7215    0.4977   -0.4192
+
+  Columns 8 through 11
+
+   -0.4293   -0.9325   -0.2183    0.5233
+
+
+y_mean =
+
+   15.4636
+
+
+sum_squared_regression =
+
+   3.1086e-15
+
+
+total_sum_of_square =
+
+  -3.5527e-14
+
+
+r_square_for_cubic =
+
+    1.0875
+
+
+q =
+
+    0.0296   -0.6865    6.5207    2.5822
+
+
+y_new_new =
+
+  Columns 1 through 7
+
+    2.5822    4.1699    5.6746    8.4460   13.1142   16.7645   19.5741
+
+  Columns 8 through 11
+
+   21.7206   23.3814   25.9558   28.7169
+
+
+resedual_quadratic =
+
+  Columns 1 through 7
+
+   -0.0822   -0.5699   -0.3746    1.0540    0.8858   -0.2645   -0.7741
+
+  Columns 8 through 11
+
+   -0.2206   -0.1814    0.8442   -0.3169
+
+
+SSR =
+
+   2.0872e-14
+
+
+SST =
+
+  -3.5527e-14
+
+
+r_square_for_quadratic =
+
+    0.4125
+
+</pre><img vspace="5" hspace="5" src="hat_02.png" alt=""> <p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% (a)
+x = [0,0.25,0.5,1,2,3,4,5,6,8,10];
+y = [2.5,3.6,5.3,9.5,14.0,16.5,18.8,21.5,23.2,26.8,28.4];
+
+p = polyfit(x,y,1) 
+theoretical_y = polyval(p,x)
+plot(x,y,'o',x,theoretical_y)
+
+
+
+%% (b)
+
+resedual=y-theoretical_y
+bar(x,resedual)
+
+
+
+%(c)
+
+n=length(x);
+
+% r=(n*sum(x.y)-sum(x)*sum(y))/((sqrt(n*sum(x.^2)-(sum(x))^2))*(((sqrt(n*sum(y.^2)-(sum(y))^2)));
+% r^2
+%
+%(d)
+
+s=polyfit(x,y,2) 
+y_new=polyval(s,x)
+resedual_cubic=y-y_new
+
+y_mean=sum(y)/n
+
+sum_squared_regression= sum(resedual_cubic)
+total_sum_of_square= sum(y-y_mean)
+r_square_for_cubic=1-sum_squared_regression/total_sum_of_square
+
+
+q = polyfit(x,y,3) 
+y_new_new = polyval(q,x)
+resedual_quadratic=y-y_new_new
+
+SSR= sum(resedual_quadratic)
+SST= sum(y-y_mean)
+r_square_for_quadratic= 1-abs(SSR/SST)
+
+plot(x,y_new_new,x,y_new)
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,365 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>stat</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-11-30"><meta name="DC.source" content="stat.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#2">1a</a></li><li><a href="#3">1b</a></li><li><a href="#4">1c</a></li><li><a href="#5">1d</a></li><li><a href="#6">1e</a></li><li><a href="#7">2a</a></li><li><a href="#8">2b</a></li><li><a href="#9">2c</a></li><li><a href="#10">functions</a></li></ul></div><pre class="codeinput"><span class="comment">%Mohammed Safdar Khan</span>
+<span class="comment">%20PKB204</span>
+<span class="comment">%GJ3466</span>
+
+
+x=[0 0.25 0.5 1 2 3 4 5 6 8 10];
+y=[2.5 3.6 5.3 9.5 14.0 16.5 18.8 21.5 23.2 26.8 28.4];
+</pre><h2 id="2">1a</h2><pre class="codeinput">parameters = fitt(x,y)
+</pre><img vspace="5" hspace="5" src="stat_01.png" alt=""> <h2 id="3">1b</h2><pre class="codeinput">l = residbar(x,y)
+r = resid;
+bar(x,r)
+</pre><pre class="codeoutput">
+l =
+
+    2.6522    5.8796
+
+</pre><img vspace="5" hspace="5" src="stat_02.png" alt=""> <h2 id="4">1c</h2><pre class="codeinput">j=residbar(x,y)
+residsq=(resid.^2)
+
+residsum = sum(residsq)
+</pre><pre class="codeoutput">
+j =
+
+    2.6522    5.8796
+
+
+residsq =
+
+  Columns 1 through 7
+
+   11.4218    8.6592    3.6317    0.9374    7.9300    7.0960    5.3438
+
+  Columns 8 through 11
+
+    5.5671    1.9805    0.0883   16.0115
+
+
+residsum =
+
+   68.6673
+
+</pre><h2 id="5">1d</h2><p>create a function to fit the data in 1,2,3 polyfit</p><pre class="codeinput"><span class="keyword">for</span> t = [1 2 3]
+g = fitall(x,y,t);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+ans =
+
+    'The sum of squares for 1 degree fit is 9.196089e-01'
+
+
+ans =
+
+    'The sum of squares for 2 degree fit is 9.899185e-01'
+
+
+ans =
+
+    'The sum of squares for 3 degree fit is 9.953975e-01'
+
+</pre><img vspace="5" hspace="5" src="stat_03.png" alt=""> <img vspace="5" hspace="5" src="stat_04.png" alt=""> <img vspace="5" hspace="5" src="stat_05.png" alt=""> <img vspace="5" hspace="5" src="stat_06.png" alt=""> <h2 id="6">1e</h2><pre class="codeinput"> <span class="comment">%The 3rd order polynomial gives the best fit in terms of lowest sum of square of residuals</span>
+</pre><h2 id="7">2a</h2><pre class="codeinput">f = @(C,alpha,x) C*(1-exp(-alpha*x));
+obj_fun = @(params) norm(f(params(1),params(2),x)-y);
+sol = fminsearch(obj_fun, [10 2]);
+parameter_1 = sol(1)
+parameter_2 = sol(2)
+figure(1);
+plot (x,y,<span class="string">'o'</span>)
+hold <span class="string">on</span>
+plot(x,f(parameter_1, parameter_2,x), <span class="string">'-'</span>)
+</pre><pre class="codeoutput">
+parameter_1 =
+
+   28.6859
+
+
+parameter_2 =
+
+    0.3043
+
+</pre><img vspace="5" hspace="5" src="stat_07.png" alt=""> <h2 id="8">2b</h2><p>Using Occam's razor the polyfit model with degree 2 and 3 should be rejected since it has 3 and 4 parameters respectively, while polyfit model with deree 1 and the exponential equation model have 2 parameters,</p><pre class="codeinput"> <span class="comment">%but the exponential model has a better fit than the polyfit model with degree 1.</span>
+ <span class="comment">%Therefore only the exponential model should be considered as per Occam's Razor</span>
+
+ <span class="comment">% If number of parameters is more important than the best fit, then the</span>
+ <span class="comment">% exponential model is best because it has the minimum number of</span>
+ <span class="comment">% parameters but still gives a better fit than the polynomial with degree</span>
+ <span class="comment">% 1</span>
+
+ <span class="comment">%If best fit is important then the polynomial with degree 3 is best</span>
+</pre><h2 id="9">2c</h2><pre class="codeinput">X=[0 0.25 0.5 1 2 3 4 5 6 8 10 12 16 21];
+Y=[2.5 3.6 5.3 9.5 14.0 16.5 18.8 21.5 23.2 26.8 28.4 28.4 28.5 29.5];
+C = 28.6859;
+alpha = 0.3043;
+f = @(x) C*(1-exp(-alpha*x))
+
+plot (X,Y,<span class="string">'o'</span>)
+hold <span class="string">on</span>
+fplot(f)
+ylim([0 30])
+
+title(<span class="string">'Exponential Model'</span>)
+figure(7)
+hold <span class="string">off</span>
+
+<span class="keyword">for</span> t = [1 2 3]
+g = fita(x,y,t,X,Y);
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+f =
+
+  function_handle with value:
+
+    @(x)C*(1-exp(-alpha*x))
+
+</pre><img vspace="5" hspace="5" src="stat_08.png" alt=""> <img vspace="5" hspace="5" src="stat_09.png" alt=""> <img vspace="5" hspace="5" src="stat_10.png" alt=""> <img vspace="5" hspace="5" src="stat_11.png" alt=""> <h2 id="10">functions</h2><pre class="codeinput"><span class="keyword">function</span> [m,s] = fitt(x,y)
+
+ m = polyfit(x,y,1);
+ s = polyval(m,x);
+ plot(x,y, <span class="string">'o'</span>)
+ hold <span class="string">on</span>
+ plot (x,s)
+ hold <span class="string">off</span>
+<span class="keyword">end</span>
+<span class="keyword">function</span> [m,s,r] = residbar(x,y)
+
+m = polyfit(x,y,1);
+s = polyval(m,x);
+r = s-y;
+assignin(<span class="string">'base'</span>,<span class="string">'resid'</span>,r)
+
+<span class="comment">% hold off</span>
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> [m,s,r,ymean,sq,ressq,sumrs,totalsumsq,r_sqr] = fitall(x,y,k)
+
+    m = polyfit(x,y,k);
+    s = polyval(m,x);<span class="comment">%ynew</span>
+
+    ymean = sum(y)/length(x);
+    sq = (y-ymean).^2;
+    totalsumsq = sum(sq);
+    r=y-s;
+    ressq = r.^2;
+    sumrs = sum(ressq);
+    <span class="comment">%r square</span>
+    r_sqr = 1-(sumrs/totalsumsq);
+    sprintf(<span class="string">'The sum of squares for %d degree fit is %d'</span>,k,r_sqr)
+    plot(x,y,<span class="string">'o'</span>, x,s)
+    caption = sprintf(<span class="string">'%d degree polynomial'</span> , k);
+    title(caption)
+    figure(k)
+<span class="keyword">end</span>
+<span class="keyword">function</span> [m,s] = fita(x,y,l,X,Y)
+
+    m = polyfit(x,y,l);
+    s = polyval(m,X);
+    plot(X,Y,<span class="string">'o'</span>, X,s)
+    caption = sprintf(<span class="string">'%d degree polynomial'</span> , l);
+    title(caption)
+    figure(l+4)
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">
+parameters =
+
+    2.6522    5.8796
+
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%Mohammed Safdar Khan
+%20PKB204
+%GJ3466
+
+
+x=[0 0.25 0.5 1 2 3 4 5 6 8 10];
+y=[2.5 3.6 5.3 9.5 14.0 16.5 18.8 21.5 23.2 26.8 28.4];
+%% 1a
+parameters = fitt(x,y)
+
+%% 1b
+
+l = residbar(x,y)
+r = resid;
+bar(x,r)
+
+%% 1c
+j=residbar(x,y)
+residsq=(resid.^2)
+
+residsum = sum(residsq)
+
+%% 1d
+% create a function to fit the data in 1,2,3 polyfit 
+
+for t = [1 2 3]
+g = fitall(x,y,t);
+end
+%% 1e
+
+ %The 3rd order polynomial gives the best fit in terms of lowest sum of square of residuals
+ 
+
+%% 2a
+f = @(C,alpha,x) C*(1-exp(-alpha*x));
+obj_fun = @(params) norm(f(params(1),params(2),x)-y);
+sol = fminsearch(obj_fun, [10 2]);
+parameter_1 = sol(1)
+parameter_2 = sol(2)
+figure(1);
+plot (x,y,'o')
+hold on
+plot(x,f(parameter_1, parameter_2,x), '-')
+
+%% 2b
+ % Using Occam's razor the polyfit model with degree 2 and 3 should be rejected
+ % since it has 3 and 4 parameters respectively, while polyfit model with
+ % deree 1 and the exponential equation model have 2 parameters,
+ %but the exponential model has a better fit than the polyfit model with degree 1.
+ %Therefore only the exponential model should be considered as per Occam's Razor
+ 
+ % If number of parameters is more important than the best fit, then the
+ % exponential model is best because it has the minimum number of
+ % parameters but still gives a better fit than the polynomial with degree
+ % 1
+ 
+ %If best fit is important then the polynomial with degree 3 is best 
+ 
+ %% 2c
+
+X=[0 0.25 0.5 1 2 3 4 5 6 8 10 12 16 21];
+Y=[2.5 3.6 5.3 9.5 14.0 16.5 18.8 21.5 23.2 26.8 28.4 28.4 28.5 29.5];
+C = 28.6859;
+alpha = 0.3043;
+f = @(x) C*(1-exp(-alpha*x))
+
+plot (X,Y,'o')
+hold on
+fplot(f)
+ylim([0 30])
+
+title('Exponential Model')
+figure(7)
+hold off
+
+for t = [1 2 3]
+g = fita(x,y,t,X,Y);
+end
+
+%% functions
+function [m,s] = fitt(x,y)
+
+ m = polyfit(x,y,1);
+ s = polyval(m,x);
+ plot(x,y, 'o')
+ hold on
+ plot (x,s)
+ hold off
+end
+function [m,s,r] = residbar(x,y)
+
+m = polyfit(x,y,1);
+s = polyval(m,x);
+r = s-y;
+assignin('base','resid',r)
+
+% hold off
+end
+
+function [m,s,r,ymean,sq,ressq,sumrs,totalsumsq,r_sqr] = fitall(x,y,k)
+    
+    m = polyfit(x,y,k);
+    s = polyval(m,x);%ynew
+    
+    ymean = sum(y)/length(x);
+    sq = (y-ymean).^2;
+    totalsumsq = sum(sq);
+    r=y-s;
+    ressq = r.^2;
+    sumrs = sum(ressq);
+    %r square
+    r_sqr = 1-(sumrs/totalsumsq);
+    sprintf('The sum of squares for %d degree fit is %d',k,r_sqr)   
+    plot(x,y,'o', x,s)
+    caption = sprintf('%d degree polynomial' , k);
+    title(caption)
+    figure(k)
+end
+function [m,s] = fita(x,y,l,X,Y)
+    
+    m = polyfit(x,y,l);
+    s = polyval(m,X);  
+    plot(X,Y,'o', X,s)
+    caption = sprintf('%d degree polynomial' , l);
+    title(caption)
+    figure(l+4)
+end
+
+##### SOURCE END #####
+--></body></html>

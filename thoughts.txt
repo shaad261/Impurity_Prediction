@@ -1,0 +1,7 @@
+Take 2--
+lets take the 4% values as for test sample
+
+and use others for training purpose
+
+*******networks 16,17 gives best results in take 1*************
+	
